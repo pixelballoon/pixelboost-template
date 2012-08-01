@@ -1,0 +1,76 @@
+require 'rubygems'
+
+#import 'libs/pixelboost/tools/rakefile'
+
+DATA_DIRECTORY = 'data'
+
+ANDROID_ASSETS_DIRECTORY = 'android/assets'
+
+AUDIO_DIRECTORY = File.join DATA_DIRECTORY, 'audio'
+BGM_DIRECTORY = File.join AUDIO_DIRECTORY, 'bgm'
+SFX_DIRECTORY = File.join AUDIO_DIRECTORY, 'sfx'
+
+FONTS_DIRECTORY = File.join DATA_DIRECTORY, 'fonts'
+
+SPRITESHEET_DIRECTORY = File.join DATA_DIRECTORY, 'spritesheets/images'
+PHYSICS_DIRECTORY = File.join DATA_DIRECTORY, 'physics'
+
+def copyTask srcGlob, targetDir, taskSymbol
+  directory targetDir
+  FileList[srcGlob].each do |f|
+    fileDirectory = File.join targetDir, File.dirname(f)
+    directory fileDirectory
+
+    target = File.join targetDir, File.basename(f)
+    file target => [f] do |t|
+      cp_r f, target
+    end
+
+    task taskSymbol => target
+  end
+end
+
+task :default => [:android, :ios] do
+end
+
+directory ANDROID_ASSETS_DIRECTORY
+task :android_assets do
+  command = "cp -r data " + ANDROID_ASSETS_DIRECTORY
+  system command
+
+  command = "cp -r libs/pixelboost/data/* " + ANDROID_ASSETS_DIRECTORY
+  system command
+end
+
+task :android => ['assets:build', ANDROID_ASSETS_DIRECTORY, :android_assets] do
+end
+
+task :ios => 'assets:build' do
+end
+
+namespace :assets do
+  task :build => [:audio, :fonts, :sprites, :physics] do
+  end
+  
+  copyTask 'resources/audio/bgm/*', BGM_DIRECTORY, :audio_assets
+  copyTask 'resources/audio/sfx/*', SFX_DIRECTORY, :audio_assets
+  task :audio => [BGM_DIRECTORY, SFX_DIRECTORY, :audio_assets] do
+  end
+
+  copyTask 'resources/fonts/exported/*', FONTS_DIRECTORY, :font_assets
+  task :fonts => [FONTS_DIRECTORY, :font_assets] do
+  end
+
+  directory SPRITESHEET_DIRECTORY
+  task :sprites => [SPRITESHEET_DIRECTORY] do
+    spritesheets = Dir["resources/spritesheets/*.tps"].map do |spritesheet| 
+      system "/usr/local/bin/TexturePacker '#{spritesheet}'"
+    end
+  end
+
+  directory PHYSICS_DIRECTORY
+  copyTask 'resources/physics/exported/*', PHYSICS_DIRECTORY, :physics_assets
+  task :physics => [PHYSICS_DIRECTORY, :physics_assets] do
+  end
+end
+
