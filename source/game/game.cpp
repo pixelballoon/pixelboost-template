@@ -20,9 +20,7 @@ Game::Game(void* viewController)
     pb::Entity* entity = new pb::Entity(_Scene, 0);
     
     _CameraA = new pb::OrthographicCamera();
-    _CameraA->Position = glm::vec3(0, 0, 0);
     _CameraB = new pb::OrthographicCamera();
-    _CameraB->Position = glm::vec3(0, 0, 0);
     
     pb::RectangleComponent* rectangle = new pb::RectangleComponent(entity);
     rectangle->SetColor(glm::vec4(1,1,1,1));

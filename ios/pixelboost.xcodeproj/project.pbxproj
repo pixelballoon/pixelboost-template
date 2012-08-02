@@ -415,6 +415,7 @@
 		1CF9942415C95670000746F8 /* NSMutableArray+WeakReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9940415C95670000746F8 /* NSMutableArray+WeakReferences.m */; };
 		1CF9942515C95670000746F8 /* OALAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9940615C95670000746F8 /* OALAudioFile.m */; };
 		1CF9942615C95670000746F8 /* OALTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9940915C95670000746F8 /* OALTools.m */; };
+		1CF9948F15CA5BC7000746F8 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9948D15CA5BC4000746F8 /* bounds.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1279,6 +1280,8 @@
 		1CF9940915C95670000746F8 /* OALTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALTools.m; sourceTree = "<group>"; };
 		1CF9940A15C95670000746F8 /* ObjectALMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectALMacros.h; sourceTree = "<group>"; };
 		1CF9940B15C95670000746F8 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		1CF9948D15CA5BC4000746F8 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bounds.cpp; sourceTree = "<group>"; };
+		1CF9948E15CA5BC6000746F8 /* bounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bounds.h; sourceTree = "<group>"; };
 		1CFA6BF6150D642600E351AF /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -1902,6 +1905,8 @@
 			children = (
 				1CF98F5915C94B47000746F8 /* basic.cpp */,
 				1CF98F5A15C94B47000746F8 /* basic.h */,
+				1CF9948D15CA5BC4000746F8 /* bounds.cpp */,
+				1CF9948E15CA5BC6000746F8 /* bounds.h */,
 				1CF98F5B15C94B47000746F8 /* distance.cpp */,
 				1CF98F5C15C94B47000746F8 /* distance.h */,
 				1CF98F5D15C94B47000746F8 /* render.cpp */,
@@ -3592,6 +3597,7 @@
 				1CF9942415C95670000746F8 /* NSMutableArray+WeakReferences.m in Sources */,
 				1CF9942515C95670000746F8 /* OALAudioFile.m in Sources */,
 				1CF9942615C95670000746F8 /* OALTools.m in Sources */,
+				1CF9948F15CA5BC7000746F8 /* bounds.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
