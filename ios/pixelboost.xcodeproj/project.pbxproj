@@ -11,6 +11,7 @@
 		1C7CA3D4143266480031E584 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7CA3D3143266480031E584 /* OpenAL.framework */; };
 		1C7CA3D6143266520031E584 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7CA3D5143266520031E584 /* AVFoundation.framework */; };
 		1C7CA3DA1432666C0031E584 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7CA3D91432666C0031E584 /* AudioToolbox.framework */; };
+		1CA0CDD015CBAC3F003A3297 /* boundingFrustum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0CDCE15CBAC3F003A3297 /* boundingFrustum.cpp */; };
 		1CEB6C07153F512F00E8D103 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB6BF6153F512F00E8D103 /* EAGLView.m */; };
 		1CEB6C08153F512F00E8D103 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB6BF7153F512F00E8D103 /* InfoPlist.strings */; };
 		1CEB6C09153F512F00E8D103 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB6BF9153F512F00E8D103 /* MainWindow.xib */; };
@@ -424,6 +425,8 @@
 		1C7CA3D5143266520031E584 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1C7CA3D7143266600031E584 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1C7CA3D91432666C0031E584 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1CA0CDCE15CBAC3F003A3297 /* boundingFrustum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundingFrustum.cpp; sourceTree = "<group>"; };
+		1CA0CDCF15CBAC3F003A3297 /* boundingFrustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundingFrustum.h; sourceTree = "<group>"; };
 		1CEB6BF5153F512F00E8D103 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		1CEB6BF6153F512F00E8D103 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
 		1CEB6BF8153F512F00E8D103 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1920,6 +1923,8 @@
 			children = (
 				1CF98F6215C94B47000746F8 /* boundingBox.cpp */,
 				1CF98F6315C94B47000746F8 /* boundingBox.h */,
+				1CA0CDCE15CBAC3F003A3297 /* boundingFrustum.cpp */,
+				1CA0CDCF15CBAC3F003A3297 /* boundingFrustum.h */,
 				1CF98F6415C94B47000746F8 /* boundingSphere.cpp */,
 				1CF98F6515C94B47000746F8 /* boundingSphere.h */,
 			);
@@ -3598,6 +3603,7 @@
 				1CF9942515C95670000746F8 /* OALAudioFile.m in Sources */,
 				1CF9942615C95670000746F8 /* OALTools.m in Sources */,
 				1CF9948F15CA5BC7000746F8 /* bounds.cpp in Sources */,
+				1CA0CDD015CBAC3F003A3297 /* boundingFrustum.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

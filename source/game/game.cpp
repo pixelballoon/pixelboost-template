@@ -4,7 +4,7 @@
 #include "pixelboost/graphics/device/device.h"
 #include "pixelboost/graphics/renderer/common/renderer.h"
 #include "pixelboost/graphics/renderer/primitive/primitiveRenderer.h"
-#include "pixelboost/logic/system/graphics/render/basic.h"
+#include "pixelboost/logic/system/graphics/render/bounds.h"
 #include "pixelboost/logic/entity.h"
 #include "pixelboost/logic/scene.h"
 
@@ -15,7 +15,7 @@ Game::Game(void* viewController)
 {
     _Scene = new pb::Scene();
     
-    _Scene->AddSystem(new pb::BasicRenderSystem());
+    _Scene->AddSystem(new pb::BoundsRenderSystem());
     
     pb::Entity* entity = new pb::Entity(_Scene, 0);
     
