@@ -1,0 +1,23 @@
+struct ExampleStruct
+{
+	string Example;
+}
+
+entity Example
+{
+	int Integer;
+	string String;
+	float Float;
+	ExampleStruct Struct;
+}
+
+record DataRecord
+{
+	string RecordData;
+}
+
+[HasLevel(width:"10", height:"10")]
+record LevelRecord
+{
+	
+}

@@ -1,0 +1,13 @@
+{
+	"model_roots" : [
+		"../models/"
+	],
+	"image_roots" : [
+		"../spritesheets/images/",
+		"../tool/"
+	],
+	"export_dir" : "../../data/gamedata/",
+	"pixel_unit" : 32,
+	"assets" : {
+	}
+}

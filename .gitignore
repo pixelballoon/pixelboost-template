@@ -1,5 +1,4 @@
-data/
+/android/assets/
+/data/
+xcuserdata/
 .DS_Store
-ios/pixelboost.xcodeproj/xcuserdata/
-ios/pixelboost.xcodeproj/project.xcworkspace/xcuserdata/
-android/assets/
