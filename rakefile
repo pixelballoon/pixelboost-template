@@ -1,6 +1,6 @@
 require 'rubygems'
 
-#import 'libs/pixelboost/tools/rakefile'
+import 'libs/pixelboost/tools/rakefile'
 
 DATA_DIRECTORY = 'data'
 
@@ -14,6 +14,7 @@ FONTS_DIRECTORY = File.join DATA_DIRECTORY, 'fonts'
 
 SPRITESHEET_DIRECTORY = File.join DATA_DIRECTORY, 'spritesheets/images'
 PHYSICS_DIRECTORY = File.join DATA_DIRECTORY, 'physics'
+MODELS_DIRECTORY = File.join DATA_DIRECTORY, 'models'
 
 def copyTask srcGlob, targetDir, taskSymbol
   directory targetDir
@@ -49,7 +50,7 @@ task :ios => 'assets:build' do
 end
 
 namespace :assets do
-  task :build => [:audio, :fonts, :sprites, :physics] do
+  task :build => [:audio, :fonts, :sprites, :physics, :models] do
   end
   
   copyTask 'resources/audio/bgm/*', BGM_DIRECTORY, :audio_assets
@@ -71,6 +72,16 @@ namespace :assets do
   directory PHYSICS_DIRECTORY
   copyTask 'resources/physics/exported/*', PHYSICS_DIRECTORY, :physics_assets
   task :physics => [PHYSICS_DIRECTORY, :physics_assets] do
+  end
+
+  directory MODELS_DIRECTORY
+  task :models => [MODELS_DIRECTORY, 'tools:modelconvertor'] do
+    models = Dir["resources/models/*.obj"].map do |model| 
+      system "libs/pixelboost/tools/bin/modelconvertor '#{model}' #{File.join MODELS_DIRECTORY, model.gsub(/.*\/([^\/]*).obj/, '\1')}.mdl"
+    end
+    textures = Dir["resources/models/*.png"].map do |texture| 
+      system "cp '#{texture}' #{MODELS_DIRECTORY}"
+    end
   end
 end
 
