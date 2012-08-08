@@ -53,6 +53,8 @@
 		1CEC1C741426847F00FEB08C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEC1C731426847F00FEB08C /* QuartzCore.framework */; };
 		1CEC1C761426847F00FEB08C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEC1C751426847F00FEB08C /* OpenGLES.framework */; };
 		1CF5F36D15D146C0005C4F6E /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5F36B15D146C0005C4F6E /* model.cpp */; };
+		1CF5F39715D24351005C4F6E /* render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5F39515D24351005C4F6E /* render.cpp */; };
+		1CF5F39B15D24359005C4F6E /* render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5F39915D24359005C4F6E /* render.cpp */; };
 		1CF98E9015C94B2E000746F8 /* default in Resources */ = {isa = PBXBuildFile; fileRef = 1CF98E8F15C94B2E000746F8 /* default */; };
 		1CF991FF15C94B47000746F8 /* assetLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98E9615C94B47000746F8 /* assetLoader.cpp */; };
 		1CF9920315C94B47000746F8 /* xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98EA115C94B47000746F8 /* xml.cpp */; };
@@ -117,8 +119,6 @@
 		1CF9923F15C94B47000746F8 /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F3C15C94B47000746F8 /* transform.cpp */; };
 		1CF9924015C94B47000746F8 /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F3E15C94B47000746F8 /* component.cpp */; };
 		1CF9924115C94B47000746F8 /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F4015C94B47000746F8 /* entity.cpp */; };
-		1CF9924315C94B47000746F8 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F4415C94B47000746F8 /* bounds.cpp */; };
-		1CF9924415C94B47000746F8 /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F4615C94B47000746F8 /* debug.cpp */; };
 		1CF9924515C94B47000746F8 /* destroy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F4815C94B47000746F8 /* destroy.cpp */; };
 		1CF9924615C94B47000746F8 /* finished.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F4B15C94B47000746F8 /* finished.cpp */; };
 		1CF9924715C94B47000746F8 /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1CF98F4D15C94B47000746F8 /* transform.cpp */; };
@@ -397,6 +397,10 @@
 		1CEC1C751426847F00FEB08C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1CF5F36B15D146C0005C4F6E /* model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = model.cpp; sourceTree = "<group>"; };
 		1CF5F36C15D146C0005C4F6E /* model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = model.h; sourceTree = "<group>"; };
+		1CF5F39515D24351005C4F6E /* render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = render.cpp; sourceTree = "<group>"; };
+		1CF5F39615D24351005C4F6E /* render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = render.h; sourceTree = "<group>"; };
+		1CF5F39915D24359005C4F6E /* render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = render.cpp; sourceTree = "<group>"; };
+		1CF5F39A15D24359005C4F6E /* render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = render.h; sourceTree = "<group>"; };
 		1CF98E8F15C94B2E000746F8 /* default */ = {isa = PBXFileReference; lastKnownFileType = folder; name = default; path = ../libs/pixelboost/data/default; sourceTree = "<group>"; };
 		1CF98E9615C94B47000746F8 /* assetLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = assetLoader.cpp; sourceTree = "<group>"; };
 		1CF98E9715C94B47000746F8 /* assetLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assetLoader.h; sourceTree = "<group>"; };
@@ -538,10 +542,6 @@
 		1CF98F4015C94B47000746F8 /* entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = entity.cpp; sourceTree = "<group>"; };
 		1CF98F4115C94B47000746F8 /* entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entity.h; sourceTree = "<group>"; };
 		1CF98F4215C94B47000746F8 /* entity.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = entity.inl; sourceTree = "<group>"; };
-		1CF98F4415C94B47000746F8 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bounds.cpp; sourceTree = "<group>"; };
-		1CF98F4515C94B47000746F8 /* bounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bounds.h; sourceTree = "<group>"; };
-		1CF98F4615C94B47000746F8 /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
-		1CF98F4715C94B47000746F8 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		1CF98F4815C94B47000746F8 /* destroy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = destroy.cpp; sourceTree = "<group>"; };
 		1CF98F4915C94B47000746F8 /* destroy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = destroy.h; sourceTree = "<group>"; };
 		1CF98F4B15C94B47000746F8 /* finished.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = finished.cpp; sourceTree = "<group>"; };
@@ -1405,6 +1405,24 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
+		1CF5F39415D24351005C4F6E /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				1CF5F39515D24351005C4F6E /* render.cpp */,
+				1CF5F39615D24351005C4F6E /* render.h */,
+			);
+			path = debug;
+			sourceTree = "<group>";
+		};
+		1CF5F39815D24359005C4F6E /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				1CF5F39915D24359005C4F6E /* render.cpp */,
+				1CF5F39A15D24359005C4F6E /* render.h */,
+			);
+			path = debug;
+			sourceTree = "<group>";
+		};
 		1CF98E9115C94B47000746F8 /* pixelboost */ = {
 			isa = PBXGroup;
 			children = (
@@ -1870,10 +1888,7 @@
 		1CF98F4315C94B47000746F8 /* message */ = {
 			isa = PBXGroup;
 			children = (
-				1CF98F4415C94B47000746F8 /* bounds.cpp */,
-				1CF98F4515C94B47000746F8 /* bounds.h */,
-				1CF98F4615C94B47000746F8 /* debug.cpp */,
-				1CF98F4715C94B47000746F8 /* debug.h */,
+				1CF5F39815D24359005C4F6E /* debug */,
 				1CF98F4815C94B47000746F8 /* destroy.cpp */,
 				1CF98F4915C94B47000746F8 /* destroy.h */,
 				1CF98F4A15C94B47000746F8 /* particle */,
@@ -1897,6 +1912,7 @@
 		1CF98F5615C94B47000746F8 /* system */ = {
 			isa = PBXGroup;
 			children = (
+				1CF5F39415D24351005C4F6E /* debug */,
 				1CF98F5715C94B47000746F8 /* graphics */,
 			);
 			path = system;
@@ -3175,8 +3191,6 @@
 				1CF9923F15C94B47000746F8 /* transform.cpp in Sources */,
 				1CF9924015C94B47000746F8 /* component.cpp in Sources */,
 				1CF9924115C94B47000746F8 /* entity.cpp in Sources */,
-				1CF9924315C94B47000746F8 /* bounds.cpp in Sources */,
-				1CF9924415C94B47000746F8 /* debug.cpp in Sources */,
 				1CF9924515C94B47000746F8 /* destroy.cpp in Sources */,
 				1CF9924615C94B47000746F8 /* finished.cpp in Sources */,
 				1CF9924715C94B47000746F8 /* transform.cpp in Sources */,
@@ -3390,6 +3404,8 @@
 				1CC7005E15CF9D9700E50CA8 /* OALAudioFile.m in Sources */,
 				1CC7005F15CF9D9700E50CA8 /* OALTools.m in Sources */,
 				1CF5F36D15D146C0005C4F6E /* model.cpp in Sources */,
+				1CF5F39715D24351005C4F6E /* render.cpp in Sources */,
+				1CF5F39B15D24359005C4F6E /* render.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
