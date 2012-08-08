@@ -2,3 +2,9 @@
 /data/
 xcuserdata/
 .DS_Store
+
+/android/obj/
+/android/libs/
+/android/gen/
+/android/bin/
+/android/local.properties
