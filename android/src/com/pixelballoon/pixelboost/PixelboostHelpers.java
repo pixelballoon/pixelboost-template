@@ -9,10 +9,16 @@ import android.content.Context;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
+import java.util.Locale;
 
 public class PixelboostHelpers
 {
 	public static PixelboostActivity mainActivity;
+
+	public static String getCurrentLocale()
+	{
+		return Locale.getDefault().getLanguage();
+	}
 
 	public static String getUserFilePath()
 	{

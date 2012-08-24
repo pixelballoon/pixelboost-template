@@ -8,3 +8,4 @@ xcuserdata/
 /android/gen/
 /android/bin/
 /android/local.properties
+/android/jni/obj/
