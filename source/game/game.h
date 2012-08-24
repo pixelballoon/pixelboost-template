@@ -20,10 +20,8 @@ public:
     virtual void Render();
     
 private:
-    pb::OrthographicCamera* _CameraA;
-    pb::Viewport* _ViewportA;
-    pb::OrthographicCamera* _CameraB;
-    pb::Viewport* _ViewportB;
+    pb::OrthographicCamera* _Camera;
+    pb::Viewport* _Viewport;
     
     pb::RenderLayer* _Layer;
     

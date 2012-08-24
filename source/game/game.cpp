@@ -1,9 +1,9 @@
 #include "pixelboost/graphics/camera/camera.h"
 #include "pixelboost/graphics/camera/viewport.h"
-#include "pixelboost/graphics/components/rectangle.h"
 #include "pixelboost/graphics/device/device.h"
 #include "pixelboost/graphics/renderer/common/renderer.h"
 #include "pixelboost/graphics/renderer/primitive/primitiveRenderer.h"
+#include "pixelboost/logic/component/graphics/rectangle.h"
 #include "pixelboost/logic/system/graphics/render/bounds.h"
 #include "pixelboost/logic/entity.h"
 #include "pixelboost/logic/scene.h"
@@ -17,41 +17,24 @@ Game::Game(void* viewController)
     
     _Scene->AddSystem(new pb::BoundsRenderSystem());
     
-    pb::Entity* entity = new pb::Entity(_Scene, 0);
-    
-    _CameraA = new pb::OrthographicCamera();
-    _CameraB = new pb::OrthographicCamera();
-    
-    pb::RectangleComponent* rectangle = new pb::RectangleComponent(entity);
-    rectangle->SetColor(glm::vec4(1,1,1,1));
-    rectangle->SetSize(glm::vec2(5,5));
-    entity->AddComponent(rectangle);
-    
     glm::vec2 displaySize = pb::GraphicsDevice::Instance()->GetDisplayResolution();
     
-    _ViewportA = new pb::Viewport(0, _CameraA);
-    _ViewportA->SetResolution(glm::vec2(displaySize.x, displaySize.y/2.f));
-    _ViewportA->SetPosition(glm::vec2(0, displaySize.y/4.f));
-    _ViewportA->SetScene(_Scene);
+    _Camera = new pb::OrthographicCamera();
     
-    _ViewportB = new pb::Viewport(0, _CameraB);
-    _ViewportB->SetResolution(glm::vec2(displaySize.x, displaySize.y/2.f));
-    _ViewportB->SetPosition(glm::vec2(0, -displaySize.y/4.f));
-    _ViewportB->SetScene(_Scene);
+    _Viewport = new pb::Viewport(0, _Camera);
+    _Viewport->SetResolution(glm::vec2(displaySize.x, displaySize.y/2.f));
+    _Viewport->SetPosition(glm::vec2(0, displaySize.y/4.f));
+    _Viewport->SetScene(_Scene);
     
-    pb::Renderer::Instance()->AddViewport(_ViewportA);
-    pb::Renderer::Instance()->AddViewport(_ViewportB);
+    pb::Renderer::Instance()->AddViewport(_Viewport);
 }
 
 Game::~Game()
 {
-    pb::Renderer::Instance()->RemoveViewport(_ViewportA);
-    pb::Renderer::Instance()->RemoveViewport(_ViewportB);
+    pb::Renderer::Instance()->RemoveViewport(_Viewport);
     
-    delete _ViewportA;
-    delete _ViewportB;
-    delete _CameraA;
-    delete _CameraB;
+    delete _Viewport;
+    delete _Camera;
 }
 
 void Game::Update(float time)

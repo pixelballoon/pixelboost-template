@@ -1,6 +1,7 @@
 require 'rubygems'
 
-import 'libs/pixelboost/tools/rakefile'
+import 'pixelboost/engine/tools/rakefile'
+import 'pixelboost/rakefile'
 
 DATA_DIRECTORY = 'data'
 
@@ -15,6 +16,7 @@ FONTS_DIRECTORY = File.join DATA_DIRECTORY, 'fonts'
 SPRITESHEET_DIRECTORY = File.join DATA_DIRECTORY, 'spritesheets/images'
 PHYSICS_DIRECTORY = File.join DATA_DIRECTORY, 'physics'
 MODELS_DIRECTORY = File.join DATA_DIRECTORY, 'models'
+SHADERS_DIRECTORY = File.join DATA_DIRECTORY, 'shaders'
 
 def copyTask srcGlob, targetDir, taskSymbol
   directory targetDir
@@ -38,9 +40,6 @@ directory ANDROID_ASSETS_DIRECTORY
 task :android_assets do
   command = "cp -r data " + ANDROID_ASSETS_DIRECTORY
   system command
-
-  command = "cp -r libs/pixelboost/data/* " + ANDROID_ASSETS_DIRECTORY
-  system command
 end
 
 task :android => ['assets:build', ANDROID_ASSETS_DIRECTORY, :android_assets] do
@@ -50,7 +49,7 @@ task :ios => 'assets:build' do
 end
 
 namespace :assets do
-  task :build => [:audio, :fonts, :sprites, :physics, :models] do
+  task :build => [:engine_data, :audio, :fonts, :sprites, :physics, :models, :shaders] do
   end
   
   copyTask 'resources/audio/bgm/*', BGM_DIRECTORY, :audio_assets
@@ -74,13 +73,28 @@ namespace :assets do
   task :physics => [PHYSICS_DIRECTORY, :physics_assets] do
   end
 
+  task :engine_data do
+    command = "cp -r pixelboost/engine/data/ " + DATA_DIRECTORY
+    system command
+  end
+
   directory MODELS_DIRECTORY
   task :models => [MODELS_DIRECTORY, 'tools:modelconvertor'] do
     models = Dir["resources/models/*.obj"].map do |model| 
-      system "libs/pixelboost/tools/bin/modelconvertor '#{model}' #{File.join MODELS_DIRECTORY, model.gsub(/.*\/([^\/]*).obj/, '\1')}.mdl"
+      system "pixelboost/bin/modelconvertor '#{model}' #{File.join MODELS_DIRECTORY, model.gsub(/.*\/([^\/]*).obj/, '\1')}.mdl"
     end
     textures = Dir["resources/models/*.png"].map do |texture| 
       system "cp '#{texture}' #{MODELS_DIRECTORY}"
+    end
+  end
+
+  directory SHADERS_DIRECTORY
+  task :shaders => [SHADERS_DIRECTORY, 'tools:shadertool'] do
+    shaders = Dir["resources/shaders/*.shs"].map do |shader| 
+      system "pixelboost/bin/shadertool '#{shader}' '#{File.join SHADERS_DIRECTORY, shader.gsub(/.*\/([^\/]*).shs/, '\1')}.shc'"
+    end
+    shaders = Dir["pixelboost/engine/resources/shaders/*.shs"].map do |shader| 
+      system "pixelboost/bin/shadertool '#{shader}' '#{File.join SHADERS_DIRECTORY, shader.gsub(/.*\/([^\/]*).shs/, '\1')}.shc'"
     end
   end
 end
