@@ -1,0 +1,904 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C27CCF516612AB800122607 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C27CCF316612AB800122607 /* game.cpp */; };
+		1C27CCF61661322500122607 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C27CCF316612AB800122607 /* game.cpp */; };
+		1C7CA3D2143266340031E584 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7CA3D1143266340031E584 /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1C7CA3D4143266480031E584 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7CA3D3143266480031E584 /* OpenAL.framework */; };
+		1C7CA3D6143266520031E584 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7CA3D5143266520031E584 /* AVFoundation.framework */; };
+		1C7CA3DA1432666C0031E584 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7CA3D91432666C0031E584 /* AudioToolbox.framework */; };
+		1CA96EDF15E84ADD00FC1EF2 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB6C11153F541800E8D103 /* data */; };
+		1CB851BB15E81E1500012A80 /* libpixelboost_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB851B615E81D7900012A80 /* libpixelboost_ios.a */; };
+		1CB8524415E82D9D00012A80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB8524315E82D9D00012A80 /* Cocoa.framework */; };
+		1CB8527715E82DD500012A80 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8526615E82DD500012A80 /* EAGLView.m */; };
+		1CB8527815E82DD500012A80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8526715E82DD500012A80 /* InfoPlist.strings */; };
+		1CB8527915E82DD500012A80 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8526915E82DD500012A80 /* MainWindow.xib */; };
+		1CB8527A15E82DD500012A80 /* pixelboostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8526B15E82DD500012A80 /* pixelboostViewController.xib */; };
+		1CB8527B15E82DD500012A80 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8526E15E82DD500012A80 /* MainWindow-iPad.xib */; };
+		1CB8527C15E82DD500012A80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8527015E82DD500012A80 /* main.m */; };
+		1CB8527E15E82DD500012A80 /* pixelboostAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8527415E82DD500012A80 /* pixelboostAppDelegate.mm */; };
+		1CB8527F15E82DD500012A80 /* pixelboostViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8527615E82DD500012A80 /* pixelboostViewController.mm */; };
+		1CB8528C15E82DDF00012A80 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8528215E82DDF00012A80 /* AppDelegate.mm */; };
+		1CB8528D15E82DDF00012A80 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8528315E82DDF00012A80 /* Credits.rtf */; };
+		1CB8528E15E82DDF00012A80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8528515E82DDF00012A80 /* InfoPlist.strings */; };
+		1CB8528F15E82DDF00012A80 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB8528715E82DDF00012A80 /* MainMenu.xib */; };
+		1CB8529015E82DDF00012A80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8528915E82DDF00012A80 /* main.m */; };
+		1CB8529315E82F2D00012A80 /* libpixelboost_osx_x86_64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB851BA15E81D7900012A80 /* libpixelboost_osx_x86_64.a */; };
+		1CB8529515E82F5200012A80 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB8529415E82F5200012A80 /* OpenGL.framework */; };
+		1CB852A615E8307B00012A80 /* MainView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1CB852A515E8307B00012A80 /* MainView.mm */; };
+		1CEB6C12153F541800E8D103 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB6C11153F541800E8D103 /* data */; };
+		1CEC1C6E1426847F00FEB08C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEC1C6D1426847F00FEB08C /* UIKit.framework */; };
+		1CEC1C701426847F00FEB08C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEC1C6F1426847F00FEB08C /* Foundation.framework */; };
+		1CEC1C721426847F00FEB08C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEC1C711426847F00FEB08C /* CoreGraphics.framework */; };
+		1CEC1C741426847F00FEB08C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEC1C731426847F00FEB08C /* QuartzCore.framework */; };
+		1CEC1C761426847F00FEB08C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEC1C751426847F00FEB08C /* OpenGLES.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CB851B515E81D7900012A80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CB851AC15E81D7800012A80 /* pixelboost.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1C897C5F15DEA3D600AB3196;
+			remoteInfo = pixelboost_ios;
+		};
+		1CB851B715E81D7900012A80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CB851AC15E81D7800012A80 /* pixelboost.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1C897D8615DEA3E500AB3196;
+			remoteInfo = pixelboost_osx;
+		};
+		1CB851B915E81D7900012A80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CB851AC15E81D7800012A80 /* pixelboost.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1C25E97015E55AEF00833738;
+			remoteInfo = pixelboost_osx_x86_64;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1CB852EB15E83A0500012A80 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1C27CCF316612AB800122607 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		1C27CCF416612AB800122607 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		1C7CA3D1143266340031E584 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		1C7CA3D3143266480031E584 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		1C7CA3D5143266520031E584 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1C7CA3D7143266600031E584 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1C7CA3D91432666C0031E584 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1CB851AC15E81D7800012A80 /* pixelboost.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pixelboost.xcodeproj; path = ../pixelboost/engine/osx_ios/pixelboost.xcodeproj; sourceTree = "<group>"; };
+		1CB8524115E82D9D00012A80 /* Pixelboost Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixelboost Template.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CB8524315E82D9D00012A80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		1CB8524615E82D9E00012A80 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1CB8524715E82D9E00012A80 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1CB8524815E82D9E00012A80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1CB8526515E82DD500012A80 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		1CB8526615E82DD500012A80 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		1CB8526815E82DD500012A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1CB8526A15E82DD500012A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		1CB8526C15E82DD500012A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/pixelboostViewController.xib; sourceTree = "<group>"; };
+		1CB8526F15E82DD500012A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		1CB8527015E82DD500012A80 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1CB8527115E82DD500012A80 /* ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ios-Info.plist"; sourceTree = "<group>"; };
+		1CB8527215E82DD500012A80 /* ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ios-Prefix.pch"; sourceTree = "<group>"; };
+		1CB8527315E82DD500012A80 /* pixelboostAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pixelboostAppDelegate.h; sourceTree = "<group>"; };
+		1CB8527415E82DD500012A80 /* pixelboostAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pixelboostAppDelegate.mm; sourceTree = "<group>"; };
+		1CB8527515E82DD500012A80 /* pixelboostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pixelboostViewController.h; sourceTree = "<group>"; };
+		1CB8527615E82DD500012A80 /* pixelboostViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pixelboostViewController.mm; sourceTree = "<group>"; };
+		1CB8528115E82DDF00012A80 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1CB8528215E82DDF00012A80 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		1CB8528415E82DDF00012A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1CB8528615E82DDF00012A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1CB8528815E82DDF00012A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1CB8528915E82DDF00012A80 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1CB8528A15E82DDF00012A80 /* osx-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "osx-Info.plist"; sourceTree = "<group>"; };
+		1CB8528B15E82DDF00012A80 /* osx-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "osx-Prefix.pch"; sourceTree = "<group>"; };
+		1CB8529415E82F5200012A80 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		1CB852A415E8307B00012A80 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
+		1CB852A515E8307B00012A80 /* MainView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainView.mm; sourceTree = "<group>"; };
+		1CEB6C11153F541800E8D103 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = ../data; sourceTree = "<group>"; };
+		1CEC1C691426847F00FEB08C /* Pixelboost Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixelboost Template.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CEC1C6D1426847F00FEB08C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1CEC1C6F1426847F00FEB08C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1CEC1C711426847F00FEB08C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1CEC1C731426847F00FEB08C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1CEC1C751426847F00FEB08C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		1CFA6BF6150D642600E351AF /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CB8523E15E82D9D00012A80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB8529515E82F5200012A80 /* OpenGL.framework in Frameworks */,
+				1CB8529315E82F2D00012A80 /* libpixelboost_osx_x86_64.a in Frameworks */,
+				1CB8524415E82D9D00012A80 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CEC1C661426847F00FEB08C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB851BB15E81E1500012A80 /* libpixelboost_ios.a in Frameworks */,
+				1C7CA3DA1432666C0031E584 /* AudioToolbox.framework in Frameworks */,
+				1C7CA3D6143266520031E584 /* AVFoundation.framework in Frameworks */,
+				1C7CA3D4143266480031E584 /* OpenAL.framework in Frameworks */,
+				1C7CA3D2143266340031E584 /* GameKit.framework in Frameworks */,
+				1CEC1C6E1426847F00FEB08C /* UIKit.framework in Frameworks */,
+				1CEC1C701426847F00FEB08C /* Foundation.framework in Frameworks */,
+				1CEC1C721426847F00FEB08C /* CoreGraphics.framework in Frameworks */,
+				1CEC1C741426847F00FEB08C /* QuartzCore.framework in Frameworks */,
+				1CEC1C761426847F00FEB08C /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C27CCF216612AB800122607 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				1C27CCF316612AB800122607 /* game.cpp */,
+				1C27CCF416612AB800122607 /* game.h */,
+			);
+			path = game;
+			sourceTree = "<group>";
+		};
+		1C531F2B15798502003C756D /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1C27CCF216612AB800122607 /* game */,
+			);
+			name = source;
+			path = ../source;
+			sourceTree = "<group>";
+		};
+		1CB851AD15E81D7800012A80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CB851B615E81D7900012A80 /* libpixelboost_ios.a */,
+				1CB851B815E81D7900012A80 /* libpixelboost_osx.a */,
+				1CB851BA15E81D7900012A80 /* libpixelboost_osx_x86_64.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CB8524515E82D9E00012A80 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8524615E82D9E00012A80 /* AppKit.framework */,
+				1CB8524715E82D9E00012A80 /* CoreData.framework */,
+				1CB8524815E82D9E00012A80 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1CB8526415E82DD500012A80 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8526515E82DD500012A80 /* EAGLView.h */,
+				1CB8526615E82DD500012A80 /* EAGLView.m */,
+				1CB8526715E82DD500012A80 /* InfoPlist.strings */,
+				1CB8526915E82DD500012A80 /* MainWindow.xib */,
+				1CB8526B15E82DD500012A80 /* pixelboostViewController.xib */,
+				1CB8526D15E82DD500012A80 /* iPad */,
+				1CB8527015E82DD500012A80 /* main.m */,
+				1CB8527115E82DD500012A80 /* ios-Info.plist */,
+				1CB8527215E82DD500012A80 /* ios-Prefix.pch */,
+				1CB8527315E82DD500012A80 /* pixelboostAppDelegate.h */,
+				1CB8527415E82DD500012A80 /* pixelboostAppDelegate.mm */,
+				1CB8527515E82DD500012A80 /* pixelboostViewController.h */,
+				1CB8527615E82DD500012A80 /* pixelboostViewController.mm */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		1CB8526D15E82DD500012A80 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8526E15E82DD500012A80 /* MainWindow-iPad.xib */,
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		1CB8528015E82DDF00012A80 /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8528115E82DDF00012A80 /* AppDelegate.h */,
+				1CB8528215E82DDF00012A80 /* AppDelegate.mm */,
+				1CB8528315E82DDF00012A80 /* Credits.rtf */,
+				1CB8528515E82DDF00012A80 /* InfoPlist.strings */,
+				1CB8528715E82DDF00012A80 /* MainMenu.xib */,
+				1CB8528915E82DDF00012A80 /* main.m */,
+				1CB8528A15E82DDF00012A80 /* osx-Info.plist */,
+				1CB8528B15E82DDF00012A80 /* osx-Prefix.pch */,
+				1CB852A415E8307B00012A80 /* MainView.h */,
+				1CB852A515E8307B00012A80 /* MainView.mm */,
+			);
+			path = osx;
+			sourceTree = "<group>";
+		};
+		1CEC1C5E1426847E00FEB08C = {
+			isa = PBXGroup;
+			children = (
+				1CB8528015E82DDF00012A80 /* osx */,
+				1CB8526415E82DD500012A80 /* ios */,
+				1CEB6C11153F541800E8D103 /* data */,
+				1CEC1D45142697CC00FEB08C /* libs */,
+				1C531F2B15798502003C756D /* source */,
+				1CEC1C6C1426847F00FEB08C /* Frameworks */,
+				1CEC1C6A1426847F00FEB08C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1CEC1C6A1426847F00FEB08C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CEC1C691426847F00FEB08C /* Pixelboost Template.app */,
+				1CB8524115E82D9D00012A80 /* Pixelboost Template.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CEC1C6C1426847F00FEB08C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8529415E82F5200012A80 /* OpenGL.framework */,
+				1C7CA3D91432666C0031E584 /* AudioToolbox.framework */,
+				1C7CA3D7143266600031E584 /* CoreAudio.framework */,
+				1C7CA3D5143266520031E584 /* AVFoundation.framework */,
+				1C7CA3D3143266480031E584 /* OpenAL.framework */,
+				1C7CA3D1143266340031E584 /* GameKit.framework */,
+				1CEC1C6D1426847F00FEB08C /* UIKit.framework */,
+				1CEC1C6F1426847F00FEB08C /* Foundation.framework */,
+				1CEC1C711426847F00FEB08C /* CoreGraphics.framework */,
+				1CEC1C731426847F00FEB08C /* QuartzCore.framework */,
+				1CEC1C751426847F00FEB08C /* OpenGLES.framework */,
+				1CFA6BF6150D642600E351AF /* Twitter.framework */,
+				1CB8524315E82D9D00012A80 /* Cocoa.framework */,
+				1CB8524515E82D9E00012A80 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CEC1D45142697CC00FEB08C /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				1CB851AC15E81D7800012A80 /* pixelboost.xcodeproj */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CB8524015E82D9D00012A80 /* osx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CB8525B15E82D9E00012A80 /* Build configuration list for PBXNativeTarget "osx" */;
+			buildPhases = (
+				1CB8523D15E82D9D00012A80 /* Sources */,
+				1CB8523E15E82D9D00012A80 /* Frameworks */,
+				1CB8523F15E82D9D00012A80 /* Resources */,
+				1CB852EB15E83A0500012A80 /* CopyFiles */,
+				1C1B4E2315EA92F4004A5EE4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = osx;
+			productName = pixelboost_osx;
+			productReference = 1CB8524115E82D9D00012A80 /* Pixelboost Template.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CEC1C681426847F00FEB08C /* ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CEC1C951426847F00FEB08C /* Build configuration list for PBXNativeTarget "ios" */;
+			buildPhases = (
+				1CEC1C651426847F00FEB08C /* Sources */,
+				1CEC1C661426847F00FEB08C /* Frameworks */,
+				1CEC1C671426847F00FEB08C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ios;
+			productName = pollinator;
+			productReference = 1CEC1C691426847F00FEB08C /* Pixelboost Template.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CEC1C601426847E00FEB08C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Pixel Balloon";
+			};
+			buildConfigurationList = 1CEC1C631426847E00FEB08C /* Build configuration list for PBXProject "pixelboost" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1CEC1C5E1426847E00FEB08C;
+			productRefGroup = 1CEC1C6A1426847F00FEB08C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1CB851AD15E81D7800012A80 /* Products */;
+					ProjectRef = 1CB851AC15E81D7800012A80 /* pixelboost.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1CEC1C681426847F00FEB08C /* ios */,
+				1CB8524015E82D9D00012A80 /* osx */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1CB851B615E81D7900012A80 /* libpixelboost_ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libpixelboost_ios.a;
+			remoteRef = 1CB851B515E81D7900012A80 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1CB851B815E81D7900012A80 /* libpixelboost_osx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libpixelboost_osx.a;
+			remoteRef = 1CB851B715E81D7900012A80 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1CB851BA15E81D7900012A80 /* libpixelboost_osx_x86_64.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libpixelboost_osx_x86_64.a;
+			remoteRef = 1CB851B915E81D7900012A80 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CB8523F15E82D9D00012A80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB8528D15E82DDF00012A80 /* Credits.rtf in Resources */,
+				1CB8528E15E82DDF00012A80 /* InfoPlist.strings in Resources */,
+				1CB8528F15E82DDF00012A80 /* MainMenu.xib in Resources */,
+				1CA96EDF15E84ADD00FC1EF2 /* data in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CEC1C671426847F00FEB08C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CEB6C12153F541800E8D103 /* data in Resources */,
+				1CB8527815E82DD500012A80 /* InfoPlist.strings in Resources */,
+				1CB8527915E82DD500012A80 /* MainWindow.xib in Resources */,
+				1CB8527A15E82DD500012A80 /* pixelboostViewController.xib in Resources */,
+				1CB8527B15E82DD500012A80 /* MainWindow-iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C1B4E2315EA92F4004A5EE4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -change ./libfmodex.dylib @rpath/libfmodex.dylib $TARGET_BUILD_DIR/$EXECUTABLE_FOLDER_PATH/$EXECUTABLE_NAME";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CB8523D15E82D9D00012A80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB8528C15E82DDF00012A80 /* AppDelegate.mm in Sources */,
+				1CB8529015E82DDF00012A80 /* main.m in Sources */,
+				1CB852A615E8307B00012A80 /* MainView.mm in Sources */,
+				1C27CCF61661322500122607 /* game.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CEC1C651426847F00FEB08C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB8527715E82DD500012A80 /* EAGLView.m in Sources */,
+				1CB8527C15E82DD500012A80 /* main.m in Sources */,
+				1CB8527E15E82DD500012A80 /* pixelboostAppDelegate.mm in Sources */,
+				1CB8527F15E82DD500012A80 /* pixelboostViewController.mm in Sources */,
+				1C27CCF516612AB800122607 /* game.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1CB8526715E82DD500012A80 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CB8526815E82DD500012A80 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1CB8526915E82DD500012A80 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CB8526A15E82DD500012A80 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		1CB8526B15E82DD500012A80 /* pixelboostViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CB8526C15E82DD500012A80 /* en */,
+			);
+			name = pixelboostViewController.xib;
+			sourceTree = "<group>";
+		};
+		1CB8526E15E82DD500012A80 /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CB8526F15E82DD500012A80 /* en */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
+		1CB8528315E82DDF00012A80 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CB8528415E82DDF00012A80 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1CB8528515E82DDF00012A80 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CB8528615E82DDF00012A80 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1CB8528715E82DDF00012A80 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CB8528815E82DDF00012A80 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C057F3114427A0700310712 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_PREFIX_HEADER = "framework/pixelboost-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PIXELBOOST_PLATFORM_IOS,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+				);
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					../source,
+					../libs,
+					../pixelboost/engine/src/common,
+					../pixelboost/engine/src/external,
+					../pixelboost/engine/src/platform/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = PixelboostTemplate;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
+		};
+		1C057F3214427A0700310712 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "ios/ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DPIXELBOOST_PLATFORM_IOS",
+				);
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
+		1C210F6E1533AB0000DEAC92 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_PREFIX_HEADER = "framework/pixelboost-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PIXELBOOST_PLATFORM_IOS,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+				);
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					../source,
+					../libs,
+					../pixelboost/engine/src/common,
+					../pixelboost/engine/src/external,
+					../pixelboost/engine/src/platform/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = PixelboostTemplate;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "App Store";
+		};
+		1C210F6F1533AB0000DEAC92 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "ios/ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DPIXELBOOST_PLATFORM_IOS",
+					"-DPIXELBOOST_BUILD_RELEASE",
+				);
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "App Store";
+		};
+		1CB8525C15E82D9E00012A80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx/osx-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					PIXELBOOST_PLATFORM_OSX,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "osx/osx-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1CB8525D15E82D9E00012A80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx/osx-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PIXELBOOST_PLATFORM_OSX,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+					PIXELBOOST_BUILD_RELEASE,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "osx/osx-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1CB8525E15E82D9E00012A80 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx/osx-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PIXELBOOST_PLATFORM_OSX,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "osx/osx-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
+		1CB8525F15E82D9E00012A80 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "osx/osx-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PIXELBOOST_PLATFORM_OSX,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "osx/osx-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "App Store";
+		};
+		1CEC1C931426847F00FEB08C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "framework/pixelboost-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PIXELBOOST_PLATFORM_IOS,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+					"DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					../source,
+					../libs,
+					../pixelboost/engine/src/common,
+					../pixelboost/engine/src/external,
+					../pixelboost/engine/src/platform/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = PixelboostTemplate;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1CEC1C941426847F00FEB08C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_PREFIX_HEADER = "framework/pixelboost-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PIXELBOOST_PLATFORM_IOS,
+					PIXELBOOST_DISABLE_TESTFLIGHT,
+					PIXELBOOST_BUILD_RELEASE,
+				);
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					../source,
+					../libs,
+					../pixelboost/engine/src/common,
+					../pixelboost/engine/src/external,
+					../pixelboost/engine/src/platform/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = PixelboostTemplate;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CEC1C961426847F00FEB08C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "ios/ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DPIXELBOOST_PLATFORM_IOS",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1CEC1C971426847F00FEB08C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "ios/ios-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DPIXELBOOST_PLATFORM_IOS",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CB8525B15E82D9E00012A80 /* Build configuration list for PBXNativeTarget "osx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CB8525C15E82D9E00012A80 /* Debug */,
+				1CB8525D15E82D9E00012A80 /* Release */,
+				1CB8525E15E82D9E00012A80 /* Ad Hoc */,
+				1CB8525F15E82D9E00012A80 /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CEC1C631426847E00FEB08C /* Build configuration list for PBXProject "pixelboost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CEC1C931426847F00FEB08C /* Debug */,
+				1CEC1C941426847F00FEB08C /* Release */,
+				1C057F3114427A0700310712 /* Ad Hoc */,
+				1C210F6E1533AB0000DEAC92 /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CEC1C951426847F00FEB08C /* Build configuration list for PBXNativeTarget "ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CEC1C961426847F00FEB08C /* Debug */,
+				1CEC1C971426847F00FEB08C /* Release */,
+				1C057F3214427A0700310712 /* Ad Hoc */,
+				1C210F6F1533AB0000DEAC92 /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CEC1C601426847E00FEB08C /* Project object */;
+}
