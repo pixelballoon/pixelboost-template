@@ -28,7 +28,9 @@ TouchList g_Touches;
 
 extern "C" {
     JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_init(JNIEnv * env, jobject obj,  jint width, jint height);
-    JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_step(JNIEnv * env, jobject obj);
+    JNIEXPORT jboolean JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_allowFrameskip(JNIEnv * env, jobject obj);
+    JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_update(JNIEnv * env, jobject obj, jfloat delta);
+    JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_render(JNIEnv * env, jobject obj);
     JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_onSurfaceCreated(JNIEnv * env, jobject obj);
     JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_onPause(JNIEnv * env, jobject obj, jboolean quit);
     JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_onResume(JNIEnv * env, jobject obj);
@@ -43,7 +45,10 @@ JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_init(JNIEn
 
     float scale = 1.f;
 
-    float displayDensity = 32.f; // TODO: Use correct density
+    float displayDensity = 16.f;
+
+    if (width > 480 || height > 320)
+        displayDensity = 32.f;  // TODO: Use correct density
 
     PbLogDebug("pixelboost.init", "Display created %d %d\n", width, height);
     
@@ -57,7 +62,13 @@ JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_init(JNIEn
     }
 }
 
-JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_step(JNIEnv * env, jobject obj)
+JNIEXPORT jboolean JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_allowFrameskip(JNIEnv * env, jobject obj)
+{
+    return g_Game->AllowFrameskip();
+}
+
+
+JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_update(JNIEnv * env, jobject obj, jfloat delta)
 {
     pthread_mutex_lock(&g_TouchMutex);
 
@@ -79,7 +90,11 @@ JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_step(JNIEn
 
     pthread_mutex_unlock(&g_TouchMutex);
 
-    g_Game->Update(1.f/30.f);
+    g_Game->Update(delta);
+}
+
+JNIEXPORT void JNICALL Java_com_pixelballoon_pixelboost_PixelboostLib_render(JNIEnv * env, jobject obj)
+{
     g_Game->Render();
 }
 

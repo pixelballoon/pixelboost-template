@@ -358,31 +358,52 @@ class PixelboostView extends GLSurfaceView {
 
     private static class Renderer implements GLSurfaceView.Renderer
     {
+        private long updateTime;
         private long startTime;
         private long endTime;
+        private final long MAX_UPDATES = 3;
 
         public Renderer()
         {
             startTime = System.currentTimeMillis();
+            updateTime = 0;
         }
 
         public void onDrawFrame(GL10 gl)
         {
             long fps = 30;
-
             long frameTime = 1000/fps;
+            long updates = 0;
+            long maxUpdates = PixelboostLib.allowFrameskip() ? MAX_UPDATES : 1;
 
             endTime = System.currentTimeMillis();
             long delta = endTime - startTime;
-            if (delta < frameTime)
+            while (delta < frameTime)
             {
+                delta = System.currentTimeMillis() - startTime;
+
                 try {
-                    Thread.sleep(frameTime - delta);
+                    //Thread.sleep(frameTime - delta);
                 } catch (Throwable t) {}
             }
+            
+            updateTime += System.currentTimeMillis() - startTime;
             startTime = System.currentTimeMillis();
 
-            PixelboostLib.step();
+            while (updateTime >= frameTime && updates < maxUpdates)
+            {
+                PixelboostLib.update(1.f/(float)fps);
+                updateTime -= frameTime;
+                updates++;
+            }
+
+            if (updates == maxUpdates)
+                updateTime = 0;
+
+            if (updateTime < frameTime / 3)
+                updateTime = 0;
+
+            PixelboostLib.render();
         }
 
         public void onSurfaceChanged(GL10 gl, int width, int height)

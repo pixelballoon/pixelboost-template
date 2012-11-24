@@ -29,7 +29,9 @@ public class PixelboostLib {
      * @param height the current view height
      */
     public static native void init(int width, int height);
-    public static native void step();
+    public static native boolean allowFrameskip();
+    public static native void update(float delta);
+    public static native void render();
 
     public static native void onSurfaceCreated();
 

@@ -18,17 +18,17 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := libpixelboost
 LOCAL_CFLAGS    := -Werror -DPIXELBOOST_PLATFORM_ANDROID
-FILE_LIST := $(shell find $(LOCAL_PATH)/../../libs/pixelboost/src/common -type f -name "*.c*")
-FILE_LIST += $(shell find $(LOCAL_PATH)/../../libs/pixelboost/src/external -type f -name "*.c*")
-FILE_LIST += $(shell find $(LOCAL_PATH)/../../libs/pixelboost/src/platform/android -type f -name "*.c*")
+FILE_LIST := $(shell find $(LOCAL_PATH)/../../pixelboost/engine/src/common -type f -name "*.c*")
+FILE_LIST += $(shell find $(LOCAL_PATH)/../../pixelboost/engine/src/external -type f -name "*.c*")
+FILE_LIST += $(shell find $(LOCAL_PATH)/../../pixelboost/engine/src/platform/android -type f -name "*.c*")
 FILE_LIST += $(shell find $(LOCAL_PATH)/../../source -type f -name "*.c*")
 FILE_LIST += game.cpp
 LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_C_INCLUDES := \
-$(LOCAL_PATH)/../../libs/pixelboost/src/common/ \
-$(LOCAL_PATH)/../../libs/pixelboost/src/external/ \
-$(LOCAL_PATH)/../../libs/pixelboost/src/platform/android/ \
+$(LOCAL_PATH)/../../pixelboost/engine/src/common/ \
+$(LOCAL_PATH)/../../pixelboost/engine/src/external/ \
+$(LOCAL_PATH)/../../pixelboost/engine/src/platform/android/ \
 $(LOCAL_PATH)/../../source/
 
 LOCAL_LDLIBS    := -llog -lGLESv2
