@@ -11,7 +11,7 @@
 #include "game/game.h"
 
 Game::Game(void* viewController)
-    : pb::Game(viewController)
+    : pb::Engine(viewController)
 {
     _Scene = new pb::Scene();
     
@@ -41,10 +41,10 @@ void Game::Update(float time)
 {
     _Scene->Update(time);
     
-    pb::Game::Update(time);
+    Engine::Update(time);
 }
 
 void Game::Render()
 {
-    pb::Game::Render();
+    Engine::Render();
 }

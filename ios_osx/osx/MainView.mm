@@ -1,6 +1,6 @@
 #include <OpenGL/gl.h>
 
-#include "pixelboost/framework/game.h"
+#include "pixelboost/framework/engine.h"
 #include "pixelboost/input/keyboardManager.h"
 #include "pixelboost/input/mouseManager.h"
 #include "pixelboost/input/touchManager.h"
@@ -93,16 +93,16 @@ enum {
 
 - (void)onRedrawTimer
 {
-    pb::Game::Instance()->Update(1.f/(desiredFps/speedupFactor));
+    pb::Engine::Instance()->Update(1.f/(desiredFps/speedupFactor));
     [self setNeedsDisplay:true];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
 
-    pb::Game::Instance()->Render();
+    pb::Engine::Instance()->Render();
     
     glFlush();
 }
@@ -129,17 +129,17 @@ enum {
 
 - (void)mouseMoved:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     NSPoint eventLocation = [self convertPoint:event.locationInWindow fromView:nil];
     
-    pb::Game::Instance()->GetMouseManager()->OnMouseMove(glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseMove(glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
 }
 
 - (void)mouseDown:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     NSPoint eventLocation = [self convertPoint:event.locationInWindow fromView:nil];
@@ -158,24 +158,24 @@ enum {
     if ([event modifierFlags] & NSAlternateKeyMask)
         modifiers |= pb::kModifierAlt;
     
-    pb::Game::Instance()->GetTouchManager()->OnTouchDown(0, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
-    pb::Game::Instance()->GetMouseManager()->OnMouseDown(pb::kMouseButtonLeft, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetTouchManager()->OnTouchDown(0, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseDown(pb::kMouseButtonLeft, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
 }
 
 - (void)mouseDragged:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     NSPoint eventLocation = [self convertPoint:event.locationInWindow fromView:nil];
     
-    pb::Game::Instance()->GetTouchManager()->OnTouchMove(0, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
-    pb::Game::Instance()->GetMouseManager()->OnMouseMove(glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetTouchManager()->OnTouchMove(0, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseMove(glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
 }
 
 - (void)mouseUp:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     NSPoint eventLocation = [self convertPoint:event.locationInWindow fromView:nil];
@@ -194,13 +194,13 @@ enum {
     if ([event modifierFlags] & NSAlternateKeyMask)
         modifiers |= pb::kModifierAlt;
     
-    pb::Game::Instance()->GetTouchManager()->OnTouchUp(0, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
-    pb::Game::Instance()->GetMouseManager()->OnMouseUp(pb::kMouseButtonLeft, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetTouchManager()->OnTouchUp(0, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseUp(pb::kMouseButtonLeft, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
 }
 
 - (void)rightMouseDown:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     NSPoint eventLocation = [self convertPoint:event.locationInWindow fromView:nil];
@@ -219,22 +219,22 @@ enum {
     if ([event modifierFlags] & NSAlternateKeyMask)
         modifiers |= pb::kModifierAlt;
     
-    pb::Game::Instance()->GetMouseManager()->OnMouseDown(pb::kMouseButtonRight, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseDown(pb::kMouseButtonRight, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
 }
 
 - (void)rightMouseDragged:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     NSPoint eventLocation = [self convertPoint:event.locationInWindow fromView:nil];
     
-    pb::Game::Instance()->GetMouseManager()->OnMouseMove(glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseMove(glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
 }
 
 - (void)rightMouseUp:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     NSPoint eventLocation = [self convertPoint:event.locationInWindow fromView:nil];
@@ -253,12 +253,12 @@ enum {
     if ([event modifierFlags] & NSAlternateKeyMask)
         modifiers |= pb::kModifierAlt;
     
-    pb::Game::Instance()->GetMouseManager()->OnMouseUp(pb::kMouseButtonRight, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseUp(pb::kMouseButtonRight, modifiers, glm::vec2(eventLocation.x, self.frame.size.height-eventLocation.y));
 }
 
 - (void)scrollWheel:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     pb::ModifierKeys modifiers = 0;
@@ -275,151 +275,151 @@ enum {
     if ([event modifierFlags] & NSAlternateKeyMask)
         modifiers |= pb::kModifierAlt;
     
-    pb::Game::Instance()->GetMouseManager()->OnMouseScroll(modifiers, glm::vec2(-event.scrollingDeltaX, event.scrollingDeltaY));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseScroll(modifiers, glm::vec2(-event.scrollingDeltaX, event.scrollingDeltaY));
 }
 
 - (void)magnifyWithEvent:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
-    pb::Game::Instance()->GetMouseManager()->OnMouseZoom(glm::vec2(event.magnification, event.magnification));
+    pb::Engine::Instance()->GetMouseManager()->OnMouseZoom(glm::vec2(event.magnification, event.magnification));
 }
 
 - (void)keyDown:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     switch (event.keyCode)
     {
         case kVK_Return:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyReturn);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyReturn);
             break;
             
         case kVK_Delete:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyBackspace);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyBackspace);
             break;
             
         case kVK_ForwardDelete:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyDelete);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyDelete);
             break;
             
         case kVK_LeftArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyLeft);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyLeft);
             break;
             
         case kVK_RightArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyRight);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyRight);
             break;
             
         case kVK_Shift:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyShift);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyShift);
             break;
             
         case kVK_Tab:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyTab);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyTab);
             break;
             
         case kVK_Home:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyHome);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyHome);
             break;
             
         case kVK_End:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyEnd);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyEnd);
             break;
             
         case kVK_Control:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyControl);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyControl);
             break;
             
         case kVK_UpArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyUp);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyUp);
             break;
             
         case kVK_DownArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyDown);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyDown);
             break;
             
         case kVK_Escape:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyEscape);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyEscape);
             break;
             
         case kVK_Option:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyAlt);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyAlt);
             break;
             
         default:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyCharacter, (int)[event.characters UTF8String][0]);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyDown(pb::kKeyboardKeyCharacter, (int)[event.characters UTF8String][0]);
             break;
     }
 }
 
 - (void)keyUp:(NSEvent *)event
 {
-    if (!pb::Game::Instance())
+    if (!pb::Engine::Instance())
         return;
     
     switch (event.keyCode)
     {
         case kVK_Return:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyReturn);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyReturn);
             break;
             
         case kVK_Delete:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyBackspace);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyBackspace);
             break;
             
         case kVK_ForwardDelete:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyDelete);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyDelete);
             break;
             
         case kVK_LeftArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyLeft);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyLeft);
             break;
             
         case kVK_RightArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyRight);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyRight);
             break;
             
         case kVK_Shift:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyShift);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyShift);
             break;
             
         case kVK_Tab:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyTab);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyTab);
             break;
             
         case kVK_Home:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyHome);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyHome);
             break;
             
         case kVK_End:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyEnd);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyEnd);
             break;
             
         case kVK_Control:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyControl);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyControl);
             break;
             
         case kVK_UpArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyUp);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyUp);
             break;
             
         case kVK_DownArrow:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyDown);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyDown);
             break;
             
         case kVK_Escape:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyEscape);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyEscape);
             break;
             
         case kVK_Option:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyAlt);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyAlt);
             break;
             
         default:
-            pb::Game::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyCharacter, (int)[event.characters UTF8String][0]);
+            pb::Engine::Instance()->GetKeyboardManager()->OnKeyUp(pb::kKeyboardKeyCharacter, (int)[event.characters UTF8String][0]);
             break;
     }
 }

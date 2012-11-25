@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pixelboost/framework/game.h"
+#include "pixelboost/framework/engine.h"
 
 namespace pb
 {
@@ -10,7 +10,7 @@ namespace pb
     class Viewport;
 }
 
-class Game : public pb::Game
+class Game : public pb::Engine
 {
 public:
     Game(void* viewController);
