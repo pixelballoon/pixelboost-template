@@ -9,3 +9,6 @@ xcuserdata/
 /android/bin/
 /android/local.properties
 /android/jni/obj/
+/windows/Release/
+/windows/pixelboost.vcxproj.user
+/windows/obj/
