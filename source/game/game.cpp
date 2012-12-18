@@ -10,6 +10,14 @@
 
 #include "game/game.h"
 
+namespace pb
+{
+    Engine* Engine::Create(void* platformContext, std::vector<std::string> args)
+    {
+        return new Game(platformContext);
+    }
+}
+
 Game::Game(void* viewController)
     : pb::Engine(viewController)
 {

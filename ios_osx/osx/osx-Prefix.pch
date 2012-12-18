@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'pixelboost_osx' target in the 'pixelboost_osx' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
