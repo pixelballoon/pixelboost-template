@@ -7,8 +7,24 @@ pixelboost_setup_pre(pixelboost pbtemplate "com.pixelboost.template" "Pixelboost
 
 include_directories("source")
 
-set (GAME_SOURCES
-	"source/game/game.cpp"
+set (CORE_SOURCES
+	"source/core/game.cpp"
+	"source/core/game.h"
 	)
 
-pixelboost_setup_post()
+set (SCREEN_SOURCES
+	"source/screens/gameScreen.cpp"
+	"source/screens/gameScreen.h"
+	"source/screens/menuScreen.cpp"
+	"source/screens/menuScreen.h"
+	)
+
+set (TEMPLATE_SOURCES
+	${CORE_SOURCES}
+	${SCREEN_SOURCES}
+	)
+
+source_group (core FILES ${CORE_SOURCES})
+source_group (screens FILES ${SCREEN_SOURCES})
+
+pixelboost_setup_post("${TEMPLATE_SOURCES}")
