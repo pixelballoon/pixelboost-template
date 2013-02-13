@@ -23,6 +23,8 @@ void GameScreen::Update(float timeDelta, float gameDelta)
 
 void GameScreen::SetActive(bool active)
 {
+    Screen::SetActive(active);
+    
     if (active)
     {
         _Camera = new pb::OrthographicCamera();
