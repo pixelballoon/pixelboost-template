@@ -80,7 +80,7 @@ void MenuScreen::SetActive(bool active)
     
     if (active)
     {
-        Game::Instance()->GetMouseManager()->AddHandler(_InputHandler);
+        Game::Instance()->GetTouchManager()->AddHandler(_InputHandler);
         
         _Camera = new pb::OrthographicCamera();
         _Scene = new pb::Scene();
@@ -93,7 +93,7 @@ void MenuScreen::SetActive(bool active)
         
         AddControls();
     } else {
-        Game::Instance()->GetMouseManager()->RemoveHandler(_InputHandler);
+        Game::Instance()->GetTouchManager()->RemoveHandler(_InputHandler);
         
         DestroyViewport(_Viewport);
         _Viewport = 0;
