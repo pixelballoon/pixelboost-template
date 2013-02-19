@@ -1,5 +1,6 @@
 #include "pixelboost/graphics/camera/camera.h"
 #include "pixelboost/graphics/camera/viewport.h"
+#include "pixelboost/logic/system/graphics/render/bounds.h"
 #include "pixelboost/logic/scene.h"
 
 #include "screens/gameScreen.h"
@@ -33,6 +34,8 @@ void GameScreen::SetActive(bool active)
         _Viewport->SetScene(_Scene);
         
         AddViewport(_Viewport);
+        
+        _Scene->AddSystem(new pb::BoundsRenderSystem());
     } else {
         DestroyViewport(_Viewport);
         _Viewport = 0;
