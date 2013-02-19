@@ -15,14 +15,14 @@
 
 namespace pb
 {
-    Engine* Engine::Create(void* platformContext, std::vector<std::string> args)
+    Engine* Engine::Create(void* platformContext, int argc, const char** argv)
     {
-        return new Game(platformContext, args);
+        return new Game(platformContext, argc, argv);
     }
 }
 
-Game::Game(void* viewController, std::vector<std::string> args)
-    : pb::Engine(viewController, args)
+Game::Game(void* viewController, int argc, const char** argv)
+    : pb::Engine(viewController, argc, argv)
     , _GameMode(kGameModeUninitialised)
 {
     _GameScreen = new GameScreen();
@@ -39,6 +39,24 @@ Game::~Game()
 Game* Game::Instance()
 {
     return static_cast<Game*>(pb::Engine::Instance());
+}
+
+void Game::Update(float timeDelta, float gameDelta)
+{
+    switch (_GameMode)
+    {
+        case kGameModeGame:
+            _GameScreen->Update(timeDelta, gameDelta);
+            break;
+            
+        case kGameModeMenu:
+            _MenuScreen->Update(timeDelta, gameDelta);
+            
+        case kGameModeUninitialised:
+            break;
+    }
+    
+    Engine::Update(timeDelta, gameDelta);
 }
 
 void Game::SetMode(GameMode gameMode)
@@ -71,20 +89,12 @@ void Game::SetMode(GameMode gameMode)
     }
 }
 
-void Game::Update(float timeDelta, float gameDelta)
+GameScreen* Game::GetGameScreen()
 {
-    switch (_GameMode)
-    {
-        case kGameModeGame:
-            _GameScreen->Update(timeDelta, gameDelta);
-            break;
-            
-        case kGameModeMenu:
-            _MenuScreen->Update(timeDelta, gameDelta);
-            
-        case kGameModeUninitialised:
-            break;
-    }
-    
-    Engine::Update(timeDelta, gameDelta);
+    return _GameScreen;
+}
+
+MenuScreen* Game::GetMenuScreen()
+{
+    return _MenuScreen;
 }

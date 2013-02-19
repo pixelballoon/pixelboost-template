@@ -15,7 +15,7 @@ class MenuScreen;
 class Game : public pb::Engine
 {
 public:
-    Game(void* viewController, std::vector<std::string> args);
+    Game(void* viewController, int argc, const char** argv);
     ~Game();
     
     static Game* Instance();

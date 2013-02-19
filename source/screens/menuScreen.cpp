@@ -9,12 +9,17 @@
 #include "core/game.h"
 #include "screens/menuScreen.h"
 
-class MenuInputHandler : public pb::MouseHandler, public pb::TouchManager
+class MenuInputHandler : public pb::MouseHandler, public pb::TouchHandler
 {
 public:
     MenuInputHandler()
     {
         
+    }
+    
+    virtual int GetInputHandlerPriority()
+    {
+        return 0;
     }
     
     virtual bool OnMouseDown(pb::MouseButton button, pb::ModifierKeys modifierKeys, glm::vec2 position)
@@ -23,7 +28,7 @@ public:
         return false;
     }
     
-    virtual bool OnTouchDown(int touchId, glm::vec2 position)
+    virtual bool OnTouchDown(pb::Touch touch)
     {
         Game::Instance()->SetMode(kGameModeGame);
         return false;

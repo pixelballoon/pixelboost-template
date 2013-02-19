@@ -30,6 +30,7 @@ void GameScreen::SetActive(bool active)
         _Camera = new pb::OrthographicCamera();
         _Scene = new pb::Scene();
         _Viewport = new pb::Viewport(0, _Camera);
+        _Viewport->SetScene(_Scene);
         
         AddViewport(_Viewport);
     } else {
