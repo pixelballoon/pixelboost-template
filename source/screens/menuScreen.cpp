@@ -37,11 +37,13 @@ public:
 
 class TitleText : public pb::Entity
 {
+    PB_DECLARE_ENTITY
+    
 public:
-    TitleText(pb::Scene* scene)
-        : pb::Entity(scene, 0)
+    TitleText(pb::Scene* scene, pb::Entity* parent, pb::DbEntity* creationEntity)
+        : pb::Entity(scene, parent, creationEntity)
     {
-        pb::RectangleComponent* rect = new pb::RectangleComponent(this);
+        pb::RectangleComponent* rect = CreateComponent<pb::RectangleComponent>();
         rect->SetSize(glm::vec2(5,1));
         rect->SetSolid(true);
     }
@@ -50,17 +52,9 @@ public:
     {
         
     }
-    
-    virtual pb::Uid GetType() const
-    {
-        return GetStaticType();
-    }
-    
-    static pb::Uid GetStaticType()
-    {
-        return pb::TypeHash("TitleText");
-    }
 };
+
+PB_DEFINE_ENTITY(TitleText)
 
 MenuScreen::MenuScreen()
     : _Scene(0)
@@ -76,7 +70,10 @@ MenuScreen::~MenuScreen()
 
 void MenuScreen::Update(float timeDelta, float gameDelta)
 {
-    
+    if (_Scene)
+    {
+        _Scene->Update(timeDelta, gameDelta);
+    }
 }
 
 void MenuScreen::SetActive(bool active)
@@ -104,10 +101,12 @@ void MenuScreen::SetActive(bool active)
         _Viewport = 0;
         delete _Camera;
         _Camera = 0;
-    }    
+        delete _Scene;
+        _Scene = 0;
+    }
 }
 
 void MenuScreen::AddControls()
 {
-    new TitleText(_Scene);
+    _Scene->CreateEntity<TitleText>(0, 0);
 }

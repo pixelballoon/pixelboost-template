@@ -19,7 +19,10 @@ GameScreen::~GameScreen()
 
 void GameScreen::Update(float timeDelta, float gameDelta)
 {
-    
+    if (_Scene)
+    {
+        _Scene->Update(timeDelta, gameDelta);
+    }
 }
 
 void GameScreen::SetActive(bool active)
@@ -41,5 +44,7 @@ void GameScreen::SetActive(bool active)
         _Viewport = 0;
         delete _Camera;
         _Camera = 0;
+        delete _Scene;
+        _Scene = 0;
     }
 }
