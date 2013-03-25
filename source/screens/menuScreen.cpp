@@ -22,13 +22,16 @@ public:
         return 0;
     }
     
-    virtual bool OnMouseDown(pb::MouseButton button, pb::ModifierKeys modifierKeys, glm::vec2 position)
+    virtual bool OnMouseEvent(pb::MouseEvent event)
     {
-        Game::Instance()->SetMode(kGameModeGame);
+        if (event.Type == pb::MouseEvent::kMouseEventDown)
+        {
+            Game::Instance()->SetMode(kGameModeGame);
+        }
         return false;
     }
     
-    virtual bool OnTouchDown(pb::Touch touch)
+    virtual bool OnTouchDown(pb::TouchEvent event)
     {
         Game::Instance()->SetMode(kGameModeGame);
         return false;
